@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function TimerClock() {
+export default function TimerClock(props) {
   return (
-    <span>Time goes here</span>
+    <span>{props.totalseconds}</span>
   )
 }
