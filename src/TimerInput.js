@@ -4,6 +4,7 @@ export default function TimerInput(props) {
   const onSubmit =  e => {
     e.preventDefault();
     const data = new FormData(e.target);
+    e.target.value = '';
     return props.handleTimerSubmit(data.get('timer-input')) ;
   }
   

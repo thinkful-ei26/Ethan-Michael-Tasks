@@ -5,6 +5,8 @@ export default function TaskInput(props) {
     const onSubmit =  e => {
         e.preventDefault();
         const data = new FormData(e.target);
+        console.log(e.target.taskinput);
+        e.target.taskinput.value = '';
         return props.handleNewTask(data.get('taskinput')) ;
     }
     return <form onSubmit={onSubmit} >

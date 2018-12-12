@@ -2,6 +2,7 @@ import React from 'react';
 import TaskList from './TaskList';
 import Timer from './Timer';
 import TaskInput from './TaskInput';
+import CurrentTask from './CurrentTask';
 
 export default class Tasks extends React.Component{
 
@@ -18,7 +19,8 @@ export default class Tasks extends React.Component{
             minutes: 0,
             seconds: 0,
             totalseconds: 0,
-            intervalId: ''
+            intervalId: '',
+            initialTime: 0
         }
 
         this.handleNewTask = this.handleNewTask.bind(this);
@@ -40,17 +42,17 @@ export default class Tasks extends React.Component{
     }
 
     handleNewTask(task){
-        console.log(task);
+        // console.log(task);
         console.log(this.state.tasks);
         this.setState({tasks: [...this.state.tasks, {title:task}]});
-        console.log(task);
+        // console.log(task);
     }
-    // this.setState({guesses: [...this.state.guesses, value ]});
 
     handleTimerSubmit(time){
         console.log(time);
         this.setState({
-            minutes: time
+            minutes: time,
+            initialTime: time * 60
         })
     }
 
@@ -69,6 +71,7 @@ export default class Tasks extends React.Component{
         <TaskInput handleNewTask={this.handleNewTask} />
         <TaskList tasklist={this.state.tasks} />
         <Timer totalseconds={this.state.totalseconds} handleStartTimer={this.handleStartTimer} handleTimerSubmit={this.handleTimerSubmit}/>
+        <CurrentTask tasklist={this.state.tasks} totalseconds={this.state.totalseconds} initialTime={this.state.initialTime} />
         </div>
     }
 }
