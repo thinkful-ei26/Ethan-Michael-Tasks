@@ -5,13 +5,14 @@ export default function TimerInput(props) {
     e.preventDefault();
     const data = new FormData(e.target);
     e.target.value = '';
-    return props.handleTimerSubmit(data.get('timer-input')) ;
+    // e.target.timerinput.value = '';
+    return props.handleTimerSubmit(data.get('timerinput')) ;
   }
   
   return (
     <form onSubmit={onSubmit}>
-      <label htmlFor="timer-input">Enter time (in minutes) here</label>
-      <input type="number" name="timer-input" />
+      <label htmlFor="timerinput">Enter time (in minutes) here</label>
+      <input type="number" name="timerinput" />
       <button type="submit">Submit Time</button>
     </form>
   );
