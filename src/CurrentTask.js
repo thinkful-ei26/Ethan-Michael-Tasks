@@ -8,7 +8,7 @@ export default function CurrentTask(props) {
   const index = props.tasklist.length - (Math.ceil(props.totalseconds/taskDuration));
   console.log(index);
   if (props.totalseconds === 0 || props.initialTime === 0){
-    return <span></span>
+    return <span>Start the timer to see your current task</span>
   }
   else {
     return (
