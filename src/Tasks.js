@@ -9,10 +9,16 @@ export default class Tasks extends React.Component{
         super(props);
 
         this.state = {
-            tasks:[{title:'Make more tasks'}]
+            tasks:[{title:'Make more tasks'}],
+            minutes: 0,
+            seconds: 0
         }
 
         this.handleNewTask = this.handleNewTask.bind(this);
+
+        this.handleTimerSubmit = this.handleTimerSubmit.bind(this);
+
+        this.handleTimerChange = this.handleTimerChange.bind(this);
     }
 
     handleNewTask(task){
@@ -23,12 +29,19 @@ export default class Tasks extends React.Component{
     }
     // this.setState({guesses: [...this.state.guesses, value ]});
 
+    handleTimerSubmit(time){
+        console.log(time);
+        this.setState({
+            minutes: time
+        })
+    }
+
 
     render(){
         return <div>
         <TaskInput handleNewTask={this.handleNewTask} />
         <TaskList tasklist={this.state.tasks} />
-        <Timer />
+        <Timer handleTimerSubmit={this.handleTimerSubmit}/>
         </div>
     }
 }
